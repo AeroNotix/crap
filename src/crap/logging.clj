@@ -5,7 +5,7 @@
 (defmacro logging-future [& body]
   `(future
      (try
-       ~body
+       ~@body
        (catch Exception e#
          (log-stack-trace)
          (log/info "Error while waiting for future:" (str e#))))))
