@@ -10,8 +10,8 @@
       (throw (UnsupportedOperationException.
                "Don't know how to convert to java.io.Reader")))))
 
-(defmethod io-reader :byte-array [ba]
-  "Implementation for a [B (ByteArray)"
+(defmethod io-reader :byte-array
+  [ba]
   (-> ba
     (java.io.ByteArrayInputStream.)
     (java.io.InputStreamReader.)))
