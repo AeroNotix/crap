@@ -9,6 +9,10 @@ Leiningen:
 
 `[aeronotix/crap "0.0.1"]`
 
+## FAQ
+
+No, shut up.
+
 ## License
 
 Copyright © 2014 Aaron France
