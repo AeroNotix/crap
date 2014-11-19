@@ -8,6 +8,22 @@
                (rest (.. (Thread/currentThread) (getStackTrace)))))]
     (log/warn st)))
 
+(defmacro loop-exceptions [backoff step max-backoff stop-after & body]
+  `(loop [backoff# ~backoff num-exceptions# 0]
+     (try
+       ~@body
+       (catch Exception e#
+         (when (and
+                 (not= :infinite ~stop-after)
+                 (= num-exceptions# ~stop-after))
+           (throw e#))
+         (log-stack-trace)
+         (log/error "Looping exception:" e#)))
+     (Thread/sleep backoff#)
+     (recur
+       (max (+ backoff# ~step) ~max-backoff)
+       (inc num-exceptions#))))
+
 (defn gen-exception-clause [exception as exception-clause]
   `(catch ~exception ~as
      ~exception-clause))

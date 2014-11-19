@@ -1,4 +1,4 @@
-(defproject aeronotix/crap "0.4.4"
+(defproject aeronotix/crap "0.4.5"
   :description "A bunch of crap"
   :url "https://github.com/AeroNotix/crap"
   :license {:name "Eclipse Public License"
