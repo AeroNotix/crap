@@ -1,13 +1,8 @@
+[![Clojars Project](http://clojars.org/aeronotix/crap/latest-version.svg)](http://clojars.org/aeronotix/crap)
+
 # crap
 
 A bunch of crappy Clojure functions that I used more than once
-
-
-## Usage
-
-Leiningen:
-
-`[aeronotix/crap "0.0.1"]`
 
 ## FAQ
 
