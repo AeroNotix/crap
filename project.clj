@@ -3,6 +3,7 @@
   :url "https://github.com/AeroNotix/crap"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [metrics-clojure "2.3.0"]
+  :dependencies [[metrics-clojure "2.3.0"]
+                 [org.clojure/clojure "1.6.0"]
+                 [org.clojure/core.cache "0.6.4"]
                  [org.clojure/tools.logging "0.3.0"]])
