@@ -32,3 +32,19 @@
                     ~@body)]
       result#)
     (finally (remove-ns 'sym#))))
+
+(defn throttler [max in-period]
+  (let [last (ref 0)
+        count (ref 0)
+        throttled? (ref false)]
+    (fn []
+      (dosync
+        (let [this-time (System/currentTimeMillis)]
+          (alter count inc)
+          (if (< (- this-time @last) in-period)
+            (ref-set throttled? (>= @count max))
+            (do
+              (ref-set count 0)
+              (ref-set throttled? false)))
+          (ref-set last this-time)
+          @throttled?)))))
